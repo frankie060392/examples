@@ -49,7 +49,8 @@ export async function mintPosition(): Promise<TransactionState> {
   const tokenOutApproval = await getTokenTransferApproval(
     CurrentConfig.tokens.token1
   )
-
+  console.log(tokenInApproval)
+  console.log(tokenOutApproval)
   // Fail if transfer approvals do not go through
   if (
     tokenInApproval !== TransactionState.Sent ||
@@ -86,13 +87,15 @@ export async function mintPosition(): Promise<TransactionState> {
     positionToMint,
     mintOptions
   )
-
+  console.log(calldata, value)
   // build transaction
   const transaction = {
     data: calldata,
     to: NONFUNGIBLE_POSITION_MANAGER_CONTRACT_ADDRESS,
     value: value,
     from: address,
+    // gas: '10000000000000',
+    // gasLimit: '10000000000000'
     maxFeePerGas: MAX_FEE_PER_GAS,
     maxPriorityFeePerGas: MAX_PRIORITY_FEE_PER_GAS,
   }
@@ -106,7 +109,6 @@ export async function constructPosition(
 ): Promise<Position> {
   // get pool info
   const poolInfo = await getPoolInfo()
-
   // construct pool instance
   const configuredPool = new Pool(
     token0Amount.currency,

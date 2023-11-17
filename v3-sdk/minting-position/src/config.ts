@@ -34,19 +34,20 @@ export interface ExampleConfig {
 export const CurrentConfig: ExampleConfig = {
   env: Environment.LOCAL,
   rpc: {
-    local: 'http://localhost:8545',
-    mainnet: '',
+    local: 'https://rpc-nebulas-testnet.uniultra.xyz',
+    mainnet: 'https://rpc-nebulas-testnet.uniultra.xyz',
   },
   wallet: {
-    address: '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266',
+    address: '0xE4B8f63C111EF118587D30401e1Db99f4CfBD900',
     privateKey:
-      '0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80',
+      '0x85fc659e3f7232c6310b34d99955e836dc11935df3a00951ccba66814133bb0e',
   },
   tokens: {
     token0: USDC_TOKEN,
-    token0Amount: 1000,
+    token0Amount: 10,
     token1: DAI_TOKEN,
-    token1Amount: 1000,
-    poolFee: FeeAmount.LOW,
+    token1Amount: 10,
+    poolFee: FeeAmount.MEDIUM,
   },
 }
+
